@@ -32,6 +32,11 @@ module.exports=(sequelize,DataTypes)=>{
             type:DataTypes.STRING,
             allowNull:false
         }
+    }
+    ,
+    {
+        createdAt: false,
+        updatedAt: false
     });
     return Employee;
 }
