@@ -1,5 +1,5 @@
 module.exports=(sequelize,DataTypes)=>{
-    const Orders=sequelize.define("orders",{
+    const Payments=sequelize.define("payments",{
         customerNumber:{
             type:DataTypes.NUMBER,
             allowNull:false
@@ -17,5 +17,5 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull:false
         }
     });
-    return Orders;
+    return Payments;
 }
