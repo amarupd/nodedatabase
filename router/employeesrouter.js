@@ -2,8 +2,8 @@ const customerController = require("../controller/customerscontroller")
 
 const router = require("express").Router();
 
-router.post('/addCustomer', customerController.addCustomer);
+router.post('/addEmployee', customerController.addEmployee);
 
-router.get('/allCustomer', customerController.getAllCustomer);
+router.get('/allEmployee', customerController.getAllCustomer);
 
 module.exports = router;
