@@ -1,11 +1,10 @@
-const db=require("../model/customersmodel");
+const db=require("../model");
 
 
 //create our main model
 
 const Customer = db.customers
 console.log("we are here");
-// const Review = db.reviews
 
 
 //creating product

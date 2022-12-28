@@ -1,8 +1,9 @@
 module.exports=(sequelize,DataTypes)=>{
-    const Customers=sequelize.define("customers",{
+    const Customer=sequelize.define("customer",{
         customerNumber:{
             type:DataTypes.INTEGER,
-            allowNull:false
+            allowNull:false,
+            primaryKey: true
         },
         customerName:{
             type:DataTypes.STRING,
@@ -46,7 +47,11 @@ module.exports=(sequelize,DataTypes)=>{
         },
         creditLimit:{
             type:DataTypes.FLOAT
-        }
+        }  
+    },
+    {
+        createdAt: false,
+        updatedAt: false
     });
-    return Customers;
+    return Customer;
 }

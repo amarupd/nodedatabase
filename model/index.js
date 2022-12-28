@@ -1,4 +1,4 @@
-const dbConn = require("./config/dbcon");
+const dbConn = require("../config/dbcon");
 
 const { Sequelize, DataTypes } = require("sequelize");
 
@@ -29,9 +29,9 @@ sequelize.authenticate()
     })
 const db = {}
 db.Sequelize = Sequelize
-// db.sequelize = sequelize
+db.sequelize = sequelize
 
-db.customers = require("./controller/customerscontroller")(sequelize, DataTypes);
+db.customers = require("./customersmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
