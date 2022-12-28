@@ -35,14 +35,19 @@ db.customers = require("./customersmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
-        console.log('resync done');
+        console.log('resync customer done');
     })
-    db.employees = require("./employeesmodel")(sequelize, DataTypes);
+db.employees = require("./employeesmodel")(sequelize, DataTypes);
 
-    db.sequelize.sync({ force: false })
-        .then(() => {
-            console.log('resync done');
-        })
+db.sequelize.sync({ force: false })
+    .then(() => {
+        console.log('resync employee done');
+    })
+db.offices = require("./officesmodel")(sequelize, DataTypes);
 
+db.sequelize.sync({ force: false })
+    .then(() => {
+        console.log('resync offices done');
+    })
 
 module.exports = db;

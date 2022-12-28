@@ -31,7 +31,7 @@ const addOffice= async (req, res) => {
 const getAllOffices = async (req, res) => {
     console.log("we are in getAlloffice");
     let offices = await Office.findAll({})
-    res.status(200).send(employees)
+    res.status(200).send(offices)
     console.log("fetched all the employee");
 }
 
