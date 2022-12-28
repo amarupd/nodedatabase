@@ -1,36 +1,38 @@
 module.exports=(sequelize,DataTypes)=>{
-    const Employees=sequelize.define("employees",{
-        employeeNumber:{
-            type:DataTypes.NUMBER,
-            allowNull:false
-        },
-        lastName:{
-            type:DataTypes.STRING,
-            allowNull:false
-        },
-        firstName:{
-            type:DataTypes.STRING,
-            allowNull:false
-        },
-        extension:{
-            type:DataTypes.STRING,
-            allowNull:false
-        },
-        email:{
-            type:DataTypes.STRING,
-            allowNull:false
-        },
+    const Offices=sequelize.define("offices",{
         officeCode:{
             type:DataTypes.STRING,
             allowNull:false
         },
-        reportsTo:{
-            type:DataTypes.NUMBER,
+        city:{
+            type:DataTypes.STRING,
+            allowNull:false
         },
-        jobTitle:{
+        phone:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        addressLine1:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        addressLine2:{
+            type:DataTypes.STRING
+        },
+        state:{
+            type:DataTypes.STRING
+        },
+        country:{
+            type:DataTypes.STRING,
+        },
+        postalCode:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        territory:{
             type:DataTypes.STRING,
             allowNull:false
         }
     });
-    return Employees;
+    return Offices;
 }
