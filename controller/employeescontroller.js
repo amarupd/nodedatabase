@@ -3,44 +3,39 @@ const db=require("../model");
 
 //create our main model
 
-const Customer = db.customers
-console.log("we are here");
+const Employee = db.employees
+
 
 
 //creating product
 
-const addCustomer = async (req, res) => {
+const addEmployee = async (req, res) => {
     let info = {
-        customerNumber: req.body.customerNumber,
-        customerName: req.body.customerName,
-        contactLastName: req.body.contactLastName,
-        contactFirstName: req.body.contactFirstName,
-        phone: req.body.phone,
-        addressLine1: req.body.addressLine1,
-        addressLine2: req.body.addressLine2,
-        city: req.body.city,
-        state: req.body.state,
-        postalCode: req.body.postalCode,
-        country: req.body.country,
-        salesRepEmployeeNumber: req.body.salesRepEmployeeNumber,
-        creditLimit: req.body.creditLimit
+        employeeNumber: req.body.employeeNumber,
+        lastName: req.body.lastName,
+        firstName: req.body.firstName,
+        extension: req.body.extension,
+        email: req.body.email,
+        officeCode: req.body.officeCode,
+        reportsTo: req.body.reportsTo,
+        jobTitle: req.body.jobTitle
     }
 
-    const customer = await Customer.create(info)
-    res.status(200).send(customer)
+    const employee = await Employee.create(info)
+    res.status(200).send(employee)
 }
 
 //get all products
 
-const getAllCustomer = async (req, res) => {
-    console.log("we are in getAllCustomer");
-    let customers = await Customer.findAll({});
-    res.status(200).send(customers)
+const getAllemployee = async (req, res) => {
+    console.log("we are in getAllemployee");
+    let employees = await Employee.findAll({});
+    res.status(200).send(employees)
     console.log("fetched all the result");
 }
 
 
 module.exports = {
-    addCustomer,
-    getAllCustomer
+    addEmployee,
+    getAllemployee
 };
