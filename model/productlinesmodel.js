@@ -1,20 +1,18 @@
 module.exports=(sequelize,DataTypes)=>{
     const Productlines=sequelize.define("productlines",{
-        customerNumber:{
-            type:DataTypes.NUMBER,
-            allowNull:false
-        },
-        checkNumber:{
+        productLine:{
             type:DataTypes.STRING,
             allowNull:false
         },
-        paymentDate:{
-            type:DataTypes.DATE,
+        textDescription:{
+            type:DataTypes.STRING
+        },
+        htmlDescription:{
+            type:DataTypes.TEXT,
             allowNull:false
         },
-        amount:{
-            type:DataTypes.FLOAT,
-            allowNull:false
+        image:{
+            type:DataTypes.BLOB
         }
     });
     return Productlines;
