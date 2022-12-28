@@ -1,37 +1,41 @@
 module.exports=(sequelize,DataTypes)=>{
-    const Productlines=sequelize.define("productlines",{
-        productLine:{
+    const Products=sequelize.define("products",{
+        productCode:{
             type:DataTypes.STRING,
             allowNull:false
         },
-        textDescription:{
-            type:DataTypes.STRING
-        },
-        htmlDescription:{
-            type:DataTypes.TEXT,
+        productName:{
+            type:DataTypes.STRING,
             allowNull:false
-        },
-        image:{
-            type:DataTypes.BLOB
         },
         productLine:{
             type:DataTypes.STRING,
             allowNull:false
         },
-        textDescription:{
-            type:DataTypes.STRING
+        productScale:{
+            type:DataTypes.STRING,
+            allowNull:false
         },
-        htmlDescription:{
+        productVendor:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        productDescription:{
             type:DataTypes.TEXT,
             allowNull:false
         },
-        image:{
-            type:DataTypes.BLOB
+        quantityInStock:{
+            type:DataTypes.NUMBER,
+            allowNull:false
         },
-        htmlDescription:{
-            type:DataTypes.TEXT,
+        buyPrice:{
+            type:DataTypes.FLOAT,
+            allowNull:false
+        },
+        MSRP:{
+            type:DataTypes.FLOAT,
             allowNull:false
         }
     });
-    return Productlines;
+    return Products;
 }
