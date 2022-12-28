@@ -27,7 +27,7 @@ const addEmployee = async (req, res) => {
 
 //get all products
 
-const getAllemployee = async (req, res) => {
+const getAllEmployee = async (req, res) => {
     console.log("we are in getAllemployee");
     let employees = await Employee.findAll({});
     res.status(200).send(employees)
@@ -37,5 +37,5 @@ const getAllemployee = async (req, res) => {
 
 module.exports = {
     addEmployee,
-    getAllemployee
+    getAllEmployee
 };

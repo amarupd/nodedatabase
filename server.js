@@ -19,10 +19,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 
-//routes
+//routes for customer
 
 const router=require("./router/customersrouter");
 app.use('/api',router);
+
 
 
 
