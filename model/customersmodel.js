@@ -1,0 +1,54 @@
+module.exports=(sequelize,DataTypes)=>{
+    const Customers=sequelize.define("customers",{
+        customerNumber:{
+            type:DataTypes.NUMBER,
+            allowNull:false
+        },
+        customerName:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        contactLastName:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        contactFirstName:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        phone:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        addressLine1:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        addressLine2:{
+            type:DataTypes.STRING,
+        },
+        city:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        state:{
+            type:DataTypes.STRING,
+        },
+        postalCode:{
+            type:DataTypes.STRING
+        },
+        country:{
+            type:DataTypes.STRING,
+            allowNull:false
+        },
+        salesRepEmployeeNumber:{
+            type:DataTypes.NUMBER
+        },
+        creditLimit:{
+            type:DataTypes.FLOAT
+        }
+        
+
+    });
+    return Customers;
+}
