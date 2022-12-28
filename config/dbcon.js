@@ -2,7 +2,7 @@ module.exports={
     host     : 'localhost',
     user     : 'root',
     password : 'amar',
-    database : 'classicmodel',
+    database : 'classicmodels',
     dialect : 'mysql',
   
     pool:{
