@@ -37,6 +37,12 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync done');
     })
+    db.employees = require("./employeesmodel")(sequelize, DataTypes);
+
+    db.sequelize.sync({ force: false })
+        .then(() => {
+            console.log('resync done');
+        })
 
 
 module.exports = db;

@@ -4,7 +4,7 @@ const db=require("../model");
 //create our main model
 
 const Employee = db.employees
-
+console.log("we are here");
 
 
 //creating product
@@ -27,15 +27,15 @@ const addEmployee = async (req, res) => {
 
 //get all products
 
-const getAllEmployee = async (req, res) => {
+const getAllEmployees = async (req, res) => {
     console.log("we are in getAllemployee");
-    let employees = await Employee.findAll({});
+    let employees = await Employee.findAll({})
     res.status(200).send(employees)
-    console.log("fetched all the result");
+    console.log("fetched all the employee");
 }
 
 
 module.exports = {
     addEmployee,
-    getAllEmployee
+    getAllEmployees
 };

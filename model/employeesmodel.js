@@ -1,7 +1,7 @@
 module.exports=(sequelize,DataTypes)=>{
     const Employee=sequelize.define("employee",{
         employeeNumber:{
-            type:DataTypes.NUMBER,
+            type:DataTypes.INTEGER,
             allowNull:false,
             primaryKey: true
         },
@@ -26,7 +26,7 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull:false
         },
         reportsTo:{
-            type:DataTypes.NUMBER,
+            type:DataTypes.INTEGER,
         },
         jobTitle:{
             type:DataTypes.STRING,
