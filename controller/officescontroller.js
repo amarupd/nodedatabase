@@ -3,39 +3,40 @@ const db=require("../model");
 
 //create our main model
 
-const Offices = db.offices
+const Office = db.offices
 console.log("we are here");
 
 
 //creating product
 
-const addEmployee = async (req, res) => {
+const addOffice= async (req, res) => {
     let info = {
         officeCode: req.body.officeCode,
-        lastName: req.body.lastName,
-        firstName: req.body.firstName,
-        extension: req.body.extension,
-        email: req.body.email,
-        officeCode: req.body.officeCode,
-        reportsTo: req.body.reportsTo,
-        jobTitle: req.body.jobTitle
+        city: req.body.city,
+        phone: req.body.phone,
+        addressLine1: req.body.addressLine1,
+        addressLine2: req.body.addressLine2,
+        state: req.body.state,
+        country: req.body.country,
+        postalCode: req.body.postalCode,
+        territory: req.body.territory
     }
 
-    const employee = await Employee.create(info)
-    res.status(200).send(employee)
+    const office = await Office.create(info)
+    res.status(200).send(office)
 }
 
 //get all products
 
-const getAllEmployees = async (req, res) => {
-    console.log("we are in getAllemployee");
-    let employees = await Employee.findAll({})
+const getAllOffices = async (req, res) => {
+    console.log("we are in getAlloffice");
+    let offices = await Office.findAll({})
     res.status(200).send(employees)
     console.log("fetched all the employee");
 }
 
 
 module.exports = {
-    addEmployee,
-    getAllEmployees
+    addOffice,
+    getAllOffices
 };

@@ -2,7 +2,8 @@ module.exports=(sequelize,DataTypes)=>{
     const Offices=sequelize.define("offices",{
         officeCode:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:false,
+            primaryKey: true
         },
         city:{
             type:DataTypes.STRING,
