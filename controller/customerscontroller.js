@@ -36,6 +36,7 @@ const getAllCustomer = async (req, res) => {
     console.log("we are in getAllCustomer");
     let customers = await Customer.findAll({});
     res.status(200).send(customers)
+    console.log("fetched all the result");
 }
 
 
