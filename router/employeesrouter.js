@@ -1,9 +1,9 @@
 const employeesController = require("../controller/employeescontroller")
 
-const router = require("express").Router();
+const emprouter = require("express").Router();
 
-router.post('/addEmployee', employeesController.addEmployee);
+emprouter.post('/addEmployee', employeesController.addEmployee);
 
-router.get('/allEmployee', employeesController.getAllEmployee);
+emprouter.get('/allEmployee', employeesController.getAllEmployees);
 
-module.exports = router;
+module.exports = emprouter;

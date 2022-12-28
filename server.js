@@ -24,7 +24,15 @@ app.use(express.urlencoded({ extended: true }));
 const router=require("./router/customersrouter");
 app.use('/api',router);
 
+//routes for customer
 
+const emprouter=require("./router/employeesrouter");
+app.use('/api',emprouter);
+
+//routes for customer
+
+const offrouter=require("./router/officesrouter");
+app.use('/api',offrouter);
 
 
 app.get("", (req, res) => {
