@@ -1,7 +1,7 @@
 module.exports=(sequelize,DataTypes)=>{
     const Customers=sequelize.define("customers",{
         customerNumber:{
-            type:DataTypes.NUMBER,
+            type:DataTypes.INTEGER,
             allowNull:false
         },
         customerName:{
@@ -42,13 +42,11 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull:false
         },
         salesRepEmployeeNumber:{
-            type:DataTypes.NUMBER
+            type:DataTypes.INTEGER
         },
         creditLimit:{
             type:DataTypes.FLOAT
         }
-        
-
     });
     return Customers;
 }

@@ -1,9 +1,10 @@
-const db = require("../model");
+const db=require("../model/customersmodel");
 
 
 //create our main model
 
 const Customer = db.customers
+console.log("we are here");
 // const Review = db.reviews
 
 
@@ -32,63 +33,14 @@ const addCustomer = async (req, res) => {
 
 //get all products
 
-const getAllProduct = async (req, res) => {
-    let products = await Product.findAll({})
-    res.status(200).send(products)
+const getAllCustomer = async (req, res) => {
+    console.log("we are in getAllCustomer");
+    let customers = await Customer.findAll({});
+    res.status(200).send(customers)
 }
 
-//get single products
-
-const getSingleProduct = async (req, res) => {
-    let Id = req.params.id;
-    let product = await Product.findOne({ where: { id: Id } })
-    res.status(200).send(product)
-}
-
-//to update
-
-const updateProduct = async (req, res) => {
-    let Id = req.params.id;
-    const product = await Product.update(req.body, { where: { id: Id } })
-    res.status(200).send("results updated succesfully");
-}
-
-//soft delete
-
-const deleteProduct = async (req, res) => {
-    let Id = req.params.id;
-    await Product.destroy({ where: { id: Id } })
-    res.status(200).send('product is deleted')
-}
-
-//publish product
-
-const publishedProduct = async (req, res) => {
-    const product = await Product.findAll({ where: { published: true } })
-    res.status(200).send(product)
-};
-
-//connect one to many relating product and reviews
-
-const getProductReviews=async(req,res)=>{
-    const data=await Product.findAll({
-        include:[{
-            model:Review,
-            as:'review'
-        }],
-        where:{id:1}
-    })
-    res.status(200).send(data)
-}
-
-//export all the controls
 
 module.exports = {
-    addProduct,
-    getAllProduct,
-    getSingleProduct,
-    updateProduct,
-    deleteProduct,
-    publishedProduct,
-    getProductReviews
+    addCustomer,
+    getAllCustomer
 };

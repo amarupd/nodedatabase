@@ -27,29 +27,16 @@ sequelize.authenticate()
     .catch(err => {
         console.log('error:' + err);
     })
-// const db = {}
-// db.Sequelize = Sequelize
+const db = {}
+db.Sequelize = Sequelize
 // db.sequelize = sequelize
 
-// db.products = require("./productModel")(sequelize, DataTypes);
-// db.reviews = require("./reviewsModel")(sequelize, DataTypes);
+db.customers = require("./controller/customerscontroller")(sequelize, DataTypes);
 
-// db.sequelize.sync({ force: false })
-//     .then(() => {
-//         console.log('resync done');
-//     })
+db.sequelize.sync({ force: false })
+    .then(() => {
+        console.log('resync done');
+    })
 
 
-// // 1 to many relation
-
-// db.products.hasMany(db.reviews, {
-//     foreignKey: 'product_id',
-//     as: 'review'
-// })
-
-// db.reviews.belongsTo(db.products, {
-//     foreignKey: 'product_id',
-//     as: 'product'
-// })
-
-// module.exports = db;
+module.exports = db;
