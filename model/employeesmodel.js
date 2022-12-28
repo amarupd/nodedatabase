@@ -1,8 +1,9 @@
 module.exports=(sequelize,DataTypes)=>{
-    const Employees=sequelize.define("employees",{
+    const Employee=sequelize.define("employee",{
         employeeNumber:{
             type:DataTypes.NUMBER,
-            allowNull:false
+            allowNull:false,
+            primaryKey: true
         },
         lastName:{
             type:DataTypes.STRING,
@@ -32,5 +33,5 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull:false
         }
     });
-    return Employees;
+    return Employee;
 }
