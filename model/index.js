@@ -51,6 +51,7 @@ db.sequelize.sync({ force: false })
 
 //sequelize table for office table
 
+
 db.offices = require("./officesmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })

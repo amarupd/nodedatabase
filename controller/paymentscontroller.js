@@ -1,4 +1,4 @@
-const db=require("../model");
+const db = require("../model");
 
 
 //create our main model
@@ -9,7 +9,7 @@ console.log("we are here");
 
 //creating product
 
-const addPayment= async (req, res) => {
+const addPayment = async (req, res) => {
     let info = {
         orderNumber: req.body.orderNumber,
         orderDate: req.body.orderDate,
