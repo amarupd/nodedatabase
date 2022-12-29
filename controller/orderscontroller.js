@@ -15,6 +15,8 @@ const addOrders= async (req, res) => {
         productCode: req.body.productCode,
         quantityOrdered: req.body.quantityOrdered,
         priceEach: req.body.priceEach,
+        orderLineNumber: req.body.orderLineNumber,
+        priceEach: req.body.priceEach,
         orderLineNumber: req.body.orderLineNumber
     }
 

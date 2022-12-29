@@ -1,8 +1,9 @@
 module.exports=(sequelize,DataTypes)=>{
     const Orders=sequelize.define("orders",{
         orderNumber:{
-            type:DataTypes.NUMBER,
-            allowNull:false
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            primaryKey: true
         },
         orderDate:{
             type:DataTypes.DATE,
@@ -23,7 +24,7 @@ module.exports=(sequelize,DataTypes)=>{
             type:DataTypes.TEXT
         },
         customerNumber:{
-            type:DataTypes.NUMBER,
+            type:DataTypes.INTEGER,
             allowNull:false
         }
     },
