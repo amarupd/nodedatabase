@@ -1,8 +1,9 @@
 module.exports=(sequelize,DataTypes)=>{
-    const Productlines=sequelize.define("productlines",{
+    const Productline=sequelize.define("productlines",{
         productLine:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:false,
+            primaryKey: true
         },
         textDescription:{
             type:DataTypes.STRING
@@ -14,6 +15,10 @@ module.exports=(sequelize,DataTypes)=>{
         image:{
             type:DataTypes.BLOB
         }
+    },
+    {
+        createdAt: false,
+        updatedAt: false
     });
-    return Productlines;
+    return Productline;
 }

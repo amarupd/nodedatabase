@@ -84,4 +84,13 @@ db.sequelize.sync({ force: false })
         console.log('resync orders done');
     })
 
+//sequelize table for productlines table
+
+db.productlines = require("./productlinesmodel")(sequelize, DataTypes);
+
+db.sequelize.sync({ force: false })
+    .then(() => {
+        console.log('resync orders done');
+    })
+
 module.exports = db;
