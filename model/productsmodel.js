@@ -1,8 +1,9 @@
 module.exports=(sequelize,DataTypes)=>{
-    const Products=sequelize.define("products",{
+    const Product=sequelize.define("products",{
         productCode:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:false,
+            primaryKey: true
         },
         productName:{
             type:DataTypes.STRING,
@@ -25,7 +26,7 @@ module.exports=(sequelize,DataTypes)=>{
             allowNull:false
         },
         quantityInStock:{
-            type:DataTypes.NUMBER,
+            type:DataTypes.INTEGER,
             allowNull:false
         },
         buyPrice:{
@@ -36,6 +37,10 @@ module.exports=(sequelize,DataTypes)=>{
             type:DataTypes.FLOAT,
             allowNull:false
         }
+    },
+    {
+        createdAt: false,
+        updatedAt: false
     });
-    return Products;
+    return Product;
 }

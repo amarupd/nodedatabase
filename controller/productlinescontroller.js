@@ -12,7 +12,7 @@ console.log("we are here");
 const addProductline= async (req, res) => {
     let info = {
         productLine: req.body.productLine,
-        textDescription: req.body.orderDate,
+        textDescription: req.body.textDescription,
         htmlDescription: req.body.htmlDescription,
         image: req.body.image
     }

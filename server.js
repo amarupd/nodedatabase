@@ -51,7 +51,12 @@ app.use('/api',payrouter);
 
 //routes for pauments
 
-const prodrouter=require("./router/productlinesrouter");
+const plrouter=require("./router/productlinesrouter");
+app.use('/api',plrouter);
+
+//routes for pauments
+
+const prodrouter=require("./router/productsrouter");
 app.use('/api',prodrouter);
 
 app.get("", (req, res) => {

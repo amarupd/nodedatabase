@@ -93,4 +93,13 @@ db.sequelize.sync({ force: false })
         console.log('resync orders done');
     })
 
+//sequelize table for products table
+
+db.products = require("./productsmodel")(sequelize, DataTypes);
+
+db.sequelize.sync({ force: false })
+    .then(() => {
+        console.log('resync products done');
+    })
+
 module.exports = db;
