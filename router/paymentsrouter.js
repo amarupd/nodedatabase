@@ -7,3 +7,4 @@ payrouter.post('/addPayment', payments.addPayment);
 payrouter.get('/getAllpayments', payments.getAllpayments);
 
 module.exports = payrouter;
+
