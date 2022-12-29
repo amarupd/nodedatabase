@@ -1,5 +1,5 @@
 module.exports=(sequelize,DataTypes)=>{
-    const Orders=sequelize.define("orders",{
+    const Order=sequelize.define("orders",{
         orderNumber:{
             type:DataTypes.INTEGER,
             allowNull:false,
@@ -32,5 +32,5 @@ module.exports=(sequelize,DataTypes)=>{
         createdAt: false,
         updatedAt: false
     });
-    return Orders;
+    return Order;
 }

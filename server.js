@@ -39,6 +39,11 @@ app.use('/api',offrouter);
 const odrouter=require("./router/orderdetailsrouter");
 app.use('/api',odrouter);
 
+//routes for orders
+
+const odrrouter=require("./router/ordersrouter");
+app.use('/api',odrrouter);
+
 
 app.get("", (req, res) => {
     res.json({ message: 'hello from api' });
