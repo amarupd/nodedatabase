@@ -1,9 +1,9 @@
-const payments = require("../controller/paymentscontroller")
+const productlines = require("../controller/productlinescontroller")
 
 const payrouter = require("express").Router();
 
-payrouter.post('/addPayment', payments.addPayment);
+payrouter.post('/addProductline', productlines.addProductline);
 
-payrouter.get('/getAllpayments', payments.getAllpayments);
+payrouter.get('/getAllproductlines', productlines.getAllProductliness);
 
 module.exports = payrouter;
