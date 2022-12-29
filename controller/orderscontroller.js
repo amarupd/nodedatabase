@@ -12,12 +12,12 @@ console.log("we are here");
 const addOrders= async (req, res) => {
     let info = {
         orderNumber: req.body.orderNumber,
-        productCode: req.body.productCode,
-        quantityOrdered: req.body.quantityOrdered,
-        priceEach: req.body.priceEach,
-        orderLineNumber: req.body.orderLineNumber,
-        priceEach: req.body.priceEach,
-        orderLineNumber: req.body.orderLineNumber
+        orderDate: req.body.orderDate,
+        requiredDate: req.body.requiredDate,
+        shippedDate: req.body.shippedDate,
+        status: req.body.status,
+        comments: req.body.comments,
+        customerNumber: req.body.customerNumber
     }
 
     const order = await Order.create(info)
