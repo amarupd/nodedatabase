@@ -2,8 +2,8 @@ const orderDetails = require("../controller/orderdetailscontroller")
 
 const odrouter = require("express").Router();
 
-odrouter.post('/addorder', orderDetails.addOrderdetail);
+odrouter.post('/addorderdetail', orderDetails.addOrderdetail);
 
-odrouter.get('/allorders', orderDetails.getAllorderdetails);
+odrouter.get('/allorderdetails', orderDetails.getAllorderdetails);
 
 module.exports = odrouter;

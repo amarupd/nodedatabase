@@ -58,13 +58,21 @@ db.sequelize.sync({ force: false })
         console.log('resync offices done');
     })
 
-  //sequelize table for office table
+//sequelize table for orderDetails table
 
 db.orderdetails = require("./orderdetailsmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync offices done');
-    })  
+    })
+//sequelize table for orders table
+
+db.orders = require("./ordersmodel")(sequelize, DataTypes);
+
+db.sequelize.sync({ force: false })
+    .then(() => {
+        console.log('resync orders done');
+    })
 
 module.exports = db;
