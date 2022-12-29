@@ -18,8 +18,3 @@ console.log(greet);
 
 
 
-
-
-
-
-
