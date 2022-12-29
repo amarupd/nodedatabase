@@ -75,4 +75,13 @@ db.sequelize.sync({ force: false })
         console.log('resync orders done');
     })
 
+//sequelize table for payments table
+
+db.payments = require("./paymentsmodel")(sequelize, DataTypes);
+
+db.sequelize.sync({ force: false })
+    .then(() => {
+        console.log('resync orders done');
+    })
+
 module.exports = db;

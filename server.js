@@ -44,6 +44,10 @@ app.use('/api',odrouter);
 const odrrouter=require("./router/ordersrouter");
 app.use('/api',odrrouter);
 
+//routes for pauments
+
+const payrouter=require("./router/paymentsrouter");
+app.use('/api',payrouter);
 
 app.get("", (req, res) => {
     res.json({ message: 'hello from api' });

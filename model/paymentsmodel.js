@@ -1,12 +1,14 @@
 module.exports=(sequelize,DataTypes)=>{
-    const Payments=sequelize.define("payments",{
+    const Payment=sequelize.define("payments",{
         customerNumber:{
-            type:DataTypes.NUMBER,
-            allowNull:false
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            primaryKey: true
         },
         checkNumber:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:false,
+            primaryKey: true
         },
         paymentDate:{
             type:DataTypes.DATE,
@@ -16,6 +18,10 @@ module.exports=(sequelize,DataTypes)=>{
             type:DataTypes.FLOAT,
             allowNull:false
         }
+    },
+    {
+        createdAt: false,
+        updatedAt: false
     });
-    return Payments;
+    return Payment;
 }
