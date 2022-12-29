@@ -1,15 +1,17 @@
 module.exports=(sequelize,DataTypes)=>{
     const Orderdetails=sequelize.define("orderdetails",{
         orderNumber:{
-            type:DataTypes.NUMBER,
-            allowNull:false
+            type:DataTypes.INTEGER,
+            allowNull:false,
+            primaryKey: true
         },
         productCode:{
             type:DataTypes.STRING,
-            allowNull:false
+            allowNull:false,
+            primaryKey: true
         },
         quantityOrdered:{
-            type:DataTypes.NUMBER,
+            type:DataTypes.INTEGER,
             allowNull:false
         },
         priceEach:{
@@ -19,6 +21,10 @@ module.exports=(sequelize,DataTypes)=>{
         orderLineNumber:{
             type:DataTypes.BOOLEAN
         }
+    },
+    {
+        createdAt: false,
+        updatedAt: false
     });
     return Orderdetails;
 }

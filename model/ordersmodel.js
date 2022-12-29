@@ -26,6 +26,10 @@ module.exports=(sequelize,DataTypes)=>{
             type:DataTypes.NUMBER,
             allowNull:false
         }
+    },
+    {
+        createdAt: false,
+        updatedAt: false
     });
     return Orders;
 }

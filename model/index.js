@@ -31,23 +31,40 @@ const db = {}
 db.Sequelize = Sequelize
 db.sequelize = sequelize
 
+//sequelize table for customer table
+
 db.customers = require("./customersmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync customer done');
     })
+
+//sequelize table for employee table
+
 db.employees = require("./employeesmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync employee done');
     })
+
+//sequelize table for office table
+
 db.offices = require("./officesmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync offices done');
     })
+
+  //sequelize table for office table
+
+db.orderdetails = require("./orderdetailsmodel")(sequelize, DataTypes);
+
+db.sequelize.sync({ force: false })
+    .then(() => {
+        console.log('resync offices done');
+    })  
 
 module.exports = db;
