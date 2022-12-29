@@ -4,7 +4,7 @@ const db = require("../model");
 //create our main model
 
 const Payment = db.payments
-console.log("we are here");
+
 
 
 //creating product

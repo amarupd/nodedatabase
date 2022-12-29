@@ -1,15 +1,15 @@
-const db=require("../model");
+const db = require("../model");
 
 
 //create our main model
 
 const Product = db.products
-console.log("we are here");
+
 
 
 //creating product
 
-const addProduct= async (req, res) => {
+const addProduct = async (req, res) => {
     let info = {
         productCode: req.body.productCode,
         productName: req.body.productName,
