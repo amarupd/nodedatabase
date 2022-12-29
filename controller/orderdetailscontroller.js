@@ -4,7 +4,7 @@ const db=require("../model");
 //create our main model
 
 const OrderDetail = db.orderdetails
-console.log("we are here");
+
 
 
 //creating product

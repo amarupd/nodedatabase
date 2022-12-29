@@ -4,7 +4,7 @@ const db=require("../model");
 //create our main model
 
 const Office = db.offices
-console.log("we are here");
+
 
 
 //creating product

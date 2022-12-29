@@ -4,7 +4,7 @@ const db=require("../model");
 //create our main model
 
 const Employee = db.employees
-console.log("we are here");
+
 
 
 //creating product
