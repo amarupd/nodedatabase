@@ -148,13 +148,13 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync products done');
     })
-db.products.hasMany(db.productlines, {
-    foreignKey: 'productline'
-})
+// db.products.hasMany(db.productlines, {
+//     foreignKey: 'productline'
+// })
 
-db.productlines.belongsTo(db.products, {
-    foreignKey: 'productline'
-})
+// db.productlines.belongsTo(db.products, {
+//     foreignKey: 'productline'
+// })
 // one to many
 
 module.exports = db;
