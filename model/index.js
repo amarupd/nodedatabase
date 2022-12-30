@@ -119,13 +119,13 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync orders done');
     })
-    db.payments.hasMany(db.customers, {
-        foreignKey: 'customerNumber'
-    })
+    // db.payments.hasMany(db.customers, {
+    //     foreignKey: 'customerNumber'
+    // })
     
-    db.payments.belongsTo(db.customers, {
-        foreignKey: 'customerNumber'
-    })
+    // db.payments.belongsTo(db.customers, {
+    //     foreignKey: 'customerNumber'
+    // })
 
 //sequelize table for productlines table
 
