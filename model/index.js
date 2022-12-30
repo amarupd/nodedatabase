@@ -49,13 +49,13 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync customer done');
     })
-    db.customers.hasMany(db.employees, {
-        foreignKey: 'salesRepEmployeeNumber'
-    })
+    // db.customers.hasMany(db.employees, {
+    //     foreignKey: 'salesRepEmployeeNumber'
+    // })
     
-    db.employees.belongsTo(db.customers, {
-        foreignKey: 'employeeNumber'
-    })
+    // db.employees.belongsTo(db.customers, {
+    //     foreignKey: 'employeeNumber'
+    // })
 
 //sequelize table for employee table
 
@@ -83,20 +83,20 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync offices done');
     })
-    db.orderdetails.hasMany(db.orders, {
-        foreignKey: 'orderNumber'
-    })
+    // db.orderdetails.hasMany(db.orders, {
+    //     foreignKey: 'orderNumber'
+    // })
     
-    db.orders.belongsTo(db.orderdetails, {
-        foreignKey: 'orderNumber'
-    })
-    db.orderdetails.hasMany(db.products, {
-        foreignKey: 'productCode'
-    })
+    // db.orders.belongsTo(db.orderdetails, {
+    //     foreignKey: 'orderNumber'
+    // })
+    // db.orderdetails.hasMany(db.products, {
+    //     foreignKey: 'productCode'
+    // })
     
-    db.products.belongsTo(db.orderdetails, {
-        foreignKey: 'productCode'
-    })
+    // db.products.belongsTo(db.orderdetails, {
+    //     foreignKey: 'productCode'
+    // })
 //sequelize table for orders table
 
 
@@ -104,13 +104,13 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync orders done');
     })
-    db.orders.hasMany(db.customers, {
-        foreignKey: 'customerNumber'
-    })
+    // db.orders.hasMany(db.customers, {
+    //     foreignKey: 'customerNumber'
+    // })
     
-    db.customers.belongsTo(db.orders, {
-        foreignKey: 'customerNumber'
-    })
+    // db.customers.belongsTo(db.orders, {
+    //     foreignKey: 'customerNumber'
+    // })
 
 //sequelize table for payments table
 
