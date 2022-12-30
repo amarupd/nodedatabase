@@ -76,6 +76,20 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync offices done');
     })
+    db.orderdetails.hasMany(db.orders, {
+        foreignKey: 'orderNumber'
+    })
+    
+    db.orders.belongsTo(db.orderdetails, {
+        foreignKey: 'orderNumber'
+    })
+    db.orderdetails.hasMany(db.products, {
+        foreignKey: 'productCode'
+    })
+    
+    db.products.belongsTo(db.orderdetails, {
+        foreignKey: 'productCode'
+    })
 //sequelize table for orders table
 
 
