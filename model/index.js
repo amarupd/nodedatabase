@@ -83,6 +83,13 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync orders done');
     })
+    db.orders.hasMany(db.customers, {
+        foreignKey: 'customerNumber'
+    })
+    
+    db.customers.belongsTo(db.orders, {
+        foreignKey: 'customerNumber'
+    })
 
 //sequelize table for payments table
 
@@ -90,6 +97,13 @@ db.sequelize.sync({ force: false })
 db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync orders done');
+    })
+    db.payments.hasMany(db.customers, {
+        foreignKey: 'customerNumber'
+    })
+    
+    db.payments.belongsTo(db.customers, {
+        foreignKey: 'customerNumber'
     })
 
 //sequelize table for productlines table
@@ -99,13 +113,13 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync orders done');
     })
-db.productlines.hasMany(db.products, {
-    foreignKey: 'productLine'
-})
+// db.productlines.hasMany(db.products, {
+//     foreignKey: 'productLine'
+// })
 
-db.products.belongsTo(db.productlines, {
-    foreignKey: 'productLine'
-})
+// db.products.belongsTo(db.productlines, {
+//     foreignKey: 'productLine'
+// })
 //sequelize table for products table
 
 
@@ -113,12 +127,12 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync products done');
     })
-db.products.hasMany(db.orderdetails, {
-    foreignKey: 'productCode'
+db.products.hasMany(db.productlines, {
+    foreignKey: 'productline'
 })
 
-db.orderdetails.belongsTo(db.products, {
-    foreignKey: 'productCode'
+db.productlines.belongsTo(db.products, {
+    foreignKey: 'productline'
 })
 // one to many
 
