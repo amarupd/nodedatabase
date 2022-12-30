@@ -67,6 +67,8 @@ db.sequelize.sync({ force: false })
         console.log('resync offices done');
     })
 
+
+
 //sequelize table for orderDetails table
 
 
@@ -97,7 +99,13 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync orders done');
     })
+db.productlines.hasMany(db.products, {
+    foreignKey: 'productLine'
+})
 
+db.products.belongsTo(db.productlines, {
+    foreignKey: 'productLine'
+})
 //sequelize table for products table
 
 
@@ -105,15 +113,13 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync products done');
     })
+db.products.hasMany(db.orderdetails, {
+    foreignKey: 'productCode'
+})
 
+db.orderdetails.belongsTo(db.products, {
+    foreignKey: 'productCode'
+})
 // one to many
-// db.products.hasMany(db.reviews, {
-//     foreignKey: 'product_id',
-//     as: 'review'
-// })
 
-// db.reviews.belongsTo(db.products, {
-//     foreignKey: 'product_id',
-//     as: 'product'
-// })
 module.exports = db;
