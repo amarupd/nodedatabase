@@ -31,9 +31,19 @@ const db = {}
 db.Sequelize = Sequelize
 db.sequelize = sequelize
 
-//sequelize table for customer table
+
 
 db.customers = require("./customersmodel")(sequelize, DataTypes);
+db.employees = require("./employeesmodel")(sequelize, DataTypes);
+db.offices = require("./officesmodel")(sequelize, DataTypes);
+db.orderdetails = require("./orderdetailsmodel")(sequelize, DataTypes);
+db.orders = require("./ordersmodel")(sequelize, DataTypes);
+db.payments = require("./paymentsmodel")(sequelize, DataTypes);
+db.productlines = require("./productlinesmodel")(sequelize, DataTypes);
+db.products = require("./productsmodel")(sequelize, DataTypes);
+
+
+//sequelize table for customer table
 
 db.sequelize.sync({ force: false })
     .then(() => {
@@ -42,7 +52,6 @@ db.sequelize.sync({ force: false })
 
 //sequelize table for employee table
 
-db.employees = require("./employeesmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
@@ -52,7 +61,6 @@ db.sequelize.sync({ force: false })
 //sequelize table for office table
 
 
-db.offices = require("./officesmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
@@ -61,7 +69,6 @@ db.sequelize.sync({ force: false })
 
 //sequelize table for orderDetails table
 
-db.orderdetails = require("./orderdetailsmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
@@ -69,7 +76,6 @@ db.sequelize.sync({ force: false })
     })
 //sequelize table for orders table
 
-db.orders = require("./ordersmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
@@ -78,7 +84,6 @@ db.sequelize.sync({ force: false })
 
 //sequelize table for payments table
 
-db.payments = require("./paymentsmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
@@ -87,7 +92,6 @@ db.sequelize.sync({ force: false })
 
 //sequelize table for productlines table
 
-db.productlines = require("./productlinesmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
@@ -96,11 +100,20 @@ db.sequelize.sync({ force: false })
 
 //sequelize table for products table
 
-db.products = require("./productsmodel")(sequelize, DataTypes);
 
 db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync products done');
     })
 
+// one to many
+// db.products.hasMany(db.reviews, {
+//     foreignKey: 'product_id',
+//     as: 'review'
+// })
+
+// db.reviews.belongsTo(db.products, {
+//     foreignKey: 'product_id',
+//     as: 'product'
+// })
 module.exports = db;
