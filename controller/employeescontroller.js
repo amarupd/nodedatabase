@@ -7,7 +7,7 @@ const Employee = db.employees
 
 
 
-//creating product
+//creating product...
 
 const addEmployee = async (req, res) => {
     let info = {
