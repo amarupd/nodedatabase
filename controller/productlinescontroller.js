@@ -7,7 +7,7 @@ const ProdLines = db.productlines
 
 
 
-//creating product
+//creating product gfgfgf
 
 const addProductline = async (req, res) => {
     let info = {
