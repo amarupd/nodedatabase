@@ -7,7 +7,7 @@ const OrderDetail = db.orderdetails
 
 
 
-//creating product
+//creating product ...
 
 const addOrderdetail= async (req, res) => {
     let info = {
