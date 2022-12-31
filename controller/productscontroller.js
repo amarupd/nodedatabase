@@ -7,7 +7,7 @@ const Product = db.products
 
 
 
-//creating product
+//creating product ffffff
 
 const addProduct = async (req, res) => {
     let info = {
