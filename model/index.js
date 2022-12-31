@@ -64,6 +64,14 @@ db.sequelize.sync({ force: false })
     .then(() => {
         console.log('resync employee done');
     })
+ db.customers.hasMany(db.employees, {
+        foreignKey: 'salesRepEmployeeNumber'
+    })
+    
+    db.employees.belongsTo(db.customers, {
+        foreignKey: 'employeeNumber'
+    })
+
 
 //sequelize table for office table
 
