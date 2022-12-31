@@ -7,7 +7,7 @@ const Order = db.orders
 
 
 
-//creating product
+//creating product ....
 
 const addOrders = async (req, res) => {
     let info = {
