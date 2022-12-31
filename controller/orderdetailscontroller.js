@@ -22,7 +22,7 @@ const addOrderdetail= async (req, res) => {
     res.status(200).send(orderdetails)
 }
 
-//get all products
+//get all products...
 
 const getAllorderdetails = async (req, res) => {
     console.log("we are in getAllorderdetail");
