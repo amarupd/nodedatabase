@@ -69,6 +69,7 @@ db.sequelize.sync({ force: false })
     })
     
     db.employees.belongsTo(db.customers, {
+        
         foreignKey: 'employeeNumber'
     })
 
