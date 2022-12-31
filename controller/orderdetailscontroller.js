@@ -1,7 +1,7 @@
 const db=require("../model");
 
 
-//create our main model
+//create our main model...
 
 const OrderDetail = db.orderdetails
 
