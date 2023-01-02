@@ -52,6 +52,7 @@ module.exports = (sequelize, DataTypes) => {
         {
             createdAt: false,
             updatedAt: false
-        });
+        }
+        );
     return Customer;
 }
