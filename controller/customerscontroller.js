@@ -1,13 +1,13 @@
 const db = require("../model");
 
 
-//create our main model
+//create our main model...
 
 const Customer = db.customers
 console.log("we are here");
 
 
-//creating product
+//creating product...
 
 const addCustomer = async (req, res) => {
     let info = {
