@@ -21,6 +21,7 @@ app.get("/temp", (req, res) => {
                     jobs: JSON.parse(jobs),
                     message: "data retrieved from the cache"
                 });
+                console.log("data received from cache");
             }
             else {
                 const jobs = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityVal},IN&appid=1378804aeafe0b631a88802bfd8d17d6`);
@@ -29,6 +30,7 @@ app.get("/temp", (req, res) => {
                     jobs: jobs.data,
                     message: "cache miss"
                 });
+                console.log("data received from API");
             }
         });
     } catch(err) {

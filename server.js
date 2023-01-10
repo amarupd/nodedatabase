@@ -78,32 +78,32 @@ app.get("", (req, res) => {
 
 //redis import
 
-app.get("api/",emprouter, (req, res) => {
-    const variable = req.query.search;
-    try {
-        client.get(variable, async (err, jobs) => {
-            if (err) throw err;
+// app.get("api/",emprouter, (req, res) => {
+//     const variable = req.query.search;
+//     try {
+//         client.get(variable, async (err, jobs) => {
+//             if (err) throw err;
     
-            if (jobs) {
-                res.status(200).send({
-                    jobs: JSON.parse(jobs),
-                    message: "data retrieved from the cache"
-                });
-            }
-            else {
+//             if (jobs) {
+//                 res.status(200).send({
+//                     jobs: JSON.parse(jobs),
+//                     message: "data retrieved from the cache"
+//                 });
+//             }
+//             else {
                 
-                const jobs = await axios.get(`http://localhost:8000/api/${variable}`);
-                client.setex(variable, 600, JSON.stringify(jobs.data));
-                res.status(200).send({
-                    jobs: jobs.data,
-                    message: "cache miss"
-                });
-            }
-        });
-    } catch(err) {
-        res.status(500).send({message: err.message});
-    }
-});
+//                 const jobs = await axios.get(`http://localhost:8000/api/${variable}`);
+//                 client.setex(variable, 600, JSON.stringify(jobs.data));
+//                 res.status(200).send({
+//                     jobs: jobs.data,
+//                     message: "cache miss"
+//                 });
+//             }
+//         });
+//     } catch(err) {
+//         res.status(500).send({message: err.message});
+//     }
+// });
 
 //port
 
