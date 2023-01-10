@@ -2,9 +2,17 @@ const express = require("express");
 
 const cors = require("cors");
 
+const axios = require("axios");
+
+const redis = require("redis");
+
 const port = process.env.PORT || 8000;
 
 const app = express();
+
+const redisPort = "redis://127.0.0.1:6379"
+
+const client = redis.createClient(redisPort);
 
 var corOptions = {
     origin: 'https://localhost:8001'
