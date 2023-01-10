@@ -1,24 +1,41 @@
-const redis = require('redis');
-const redisClient = redis.createClient(6379);
+const express = require("express");
+const axios = require("axios");
+const redis = require("redis");
+const app = express();
 
-app.get('/cache/user/:email', async (req, res) => {
-    const email = req.params.email;
+const redisPort = "redis://127.0.0.1:6379"
+const client = redis.createClient(redisPort);
 
-    try {
-        redisClient.get(email, async (err, response) => {
-            console.log(response);
-            if (response) {
-                console.log("User successfully retrieved from cache");
-                res.status(200).send(JSON.parse(response));
-            } else {
-                const response = await axios.get(`${MOCK_API}?email=${email}`);
-                const user = response.data;
-                redisClient.setex(email, 600, JSON.stringify(user));
-                console.log("User successfully retrieved from the API");
-                res.status(200).send(user);
-            }
-        })
-    } catch (err) {
-        res.status(500).send({ error: err.message });
-    }
+client.on("error", (err) => {
+    console.log(err);
 })
+
+app.get("/temp", (req, res) => {
+    const cityVal = req.query.search;
+    try {
+        client.get(cityVal, async (err, jobs) => {
+            if (err) throw err;
+    
+            if (jobs) {
+                res.status(200).send({
+                    jobs: JSON.parse(jobs),
+                    message: "data retrieved from the cache"
+                });
+            }
+            else {
+                const jobs = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityVal},IN&appid=1378804aeafe0b631a88802bfd8d17d6`);
+                client.setex(cityVal, 600, JSON.stringify(jobs.data));
+                res.status(200).send({
+                    jobs: jobs.data,
+                    message: "cache miss"
+                });
+            }
+        });
+    } catch(err) {
+        res.status(500).send({message: err.message});
+    }
+});
+
+app.listen(process.env.PORT || 3000, () => {
+    console.log("Node server started");
+});
