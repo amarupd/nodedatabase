@@ -79,9 +79,9 @@ app.get("", (req, res) => {
 //redis import
 
 app.get("/temp", (req, res) => {
-    const cityVal = req.query.search;
+    const variable = req.query.search;
     try {
-        client.get(cityVal, async (err, jobs) => {
+        client.get(variable, async (err, jobs) => {
             if (err) throw err;
     
             if (jobs) {
@@ -91,8 +91,9 @@ app.get("/temp", (req, res) => {
                 });
             }
             else {
-                const jobs = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityVal},IN&appid=1378804aeafe0b631a88802bfd8d17d6`);
-                client.setex(cityVal, 600, JSON.stringify(jobs.data));
+                
+                const jobs = await axios.get(`http://localhost:8000/api/${variable}`);
+                client.setex(variable, 600, JSON.stringify(jobs.data));
                 res.status(200).send({
                     jobs: jobs.data,
                     message: "cache miss"
