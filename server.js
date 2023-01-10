@@ -78,7 +78,7 @@ app.get("", (req, res) => {
 
 //redis import
 
-app.get("/temp", (req, res) => {
+app.get("api/", (req, res) => {
     const variable = req.query.search;
     try {
         client.get(variable, async (err, jobs) => {
