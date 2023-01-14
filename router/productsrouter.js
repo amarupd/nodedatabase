@@ -6,7 +6,7 @@ prodrouter.post('/addProducts', products.addProduct);
 
 prodrouter.get('/getAllproducts', products.getAllProducts);
 
-prodrouter.get('/get',products.getOne);
+prodrouter.get('/getpd',products.getOne);
 
 
 module.exports = prodrouter;

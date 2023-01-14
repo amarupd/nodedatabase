@@ -6,6 +6,6 @@ odrouter.post('/addorderdetail', orderDetails.addOrderdetail);
 
 odrouter.get('/allorderdetails', orderDetails.getAllorderdetails);
 
-odrouter.get('/get',orderDetails.getOne);
+odrouter.get('/getod',orderDetails.getOne);
 
 module.exports = odrouter;

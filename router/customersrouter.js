@@ -17,7 +17,7 @@ router.post('/addCustomer', customerController.addCustomer);
 
 router.get('/allCustomer', customerController.getAllCustomer);
 
-router.get('/get',customerController.getOne);
+router.get('/getc',customerController.getOne);
 
 
 

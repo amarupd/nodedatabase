@@ -6,7 +6,7 @@ plrouter.post('/addProductline', productlines.addProductline);
 
 plrouter.get('/getAllproductlines', productlines.getAllProductliness);
 
-plrouter.get('/get',productlines.getOne);
+plrouter.get('/getpl',productlines.getOne);
 
 
 module.exports = plrouter;

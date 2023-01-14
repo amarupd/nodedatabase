@@ -6,7 +6,7 @@ odrrouter.post('/addorder', order.addOrders);
 
 odrrouter.get('/allorders', order.getAllorders);
 
-odrrouter.get('/get',order.getOne);
+odrrouter.get('/getor',order.getOne);
 
 
 module.exports = odrrouter;

@@ -6,6 +6,6 @@ offrouter.post('/addoffice', officesController.addOffice);
 
 offrouter.get('/alloffices', officesController.getAllOffices);
 
-offrouter.get('/get',officesController.getOne);
+offrouter.get('/getao',officesController.getOne);
 
 module.exports = offrouter;
