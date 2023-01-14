@@ -6,4 +6,6 @@ emprouter.post('/addEmployee', employeesController.addEmployee);
 
 emprouter.get('/allEmployee', employeesController.getAllEmployees);
 
+router.get('/get',employeesController.getOne);
+
 module.exports = emprouter;
