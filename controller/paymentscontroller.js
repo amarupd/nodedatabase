@@ -5,6 +5,45 @@ const db = require("../model");
 
 const Payment = db.payments
 
+const redis = require("redis");
+
+const redisPort = "redis://127.0.0.1:6379"
+// const redisPort = "redis://default:ovDFb4qIVC7PoaIdIDlsaE4ymM97Aaf3@redis-12561.c264.ap-south-1-1.ec2.cloud.redislabs.com:12561"
+const client = redis.createClient(redisPort);
+
+client.on("error", (err) => {
+    console.log(err);
+})
+
+
+/******************************************************************************************************************************* */
+
+const getOne = async (req, res) => {
+    const id = req.query.id
+    try {
+        client.get(id, async (err, payment) => {
+            if (err) throw err;
+            if (payment) {
+                console.log("catched from redis");
+                res.status(200).send({
+                    payment: JSON.parse(payment),
+                    message: " payment retrieved from the cache"
+                });
+            }
+            else {
+                let payment = await Payment.findOne({ where: { orderNumber: id } })
+                client.setex(id,600,JSON.stringify(payment));
+                res.status(200).send(payment);
+                console.log("fetched from mysql")
+            }
+        })
+    }catch (err) {
+        res.status(500).send({ message: err.message });
+    }
+
+}
+
+/********************************************************************************************************************************* */
 
 
 //creating product
@@ -33,5 +72,6 @@ const getAllpayments = async (req, res) => {
 
 module.exports = {
     addPayment,
-    getAllpayments
+    getAllpayments,
+    getOne
 };
