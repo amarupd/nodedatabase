@@ -6,7 +6,7 @@ odrrouter.post('/addorder', order.addOrders);
 
 odrrouter.get('/allorders', order.getAllorders);
 
-odrrouter.get('/get',officesController.getOne);
+odrrouter.get('/get',order.getOne);
 
 
 module.exports = odrrouter;
