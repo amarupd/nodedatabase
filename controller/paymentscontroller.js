@@ -31,7 +31,7 @@ const getOne = async (req, res) => {
                 });
             }
             else {
-                let payment = await Payment.findOne({ where: { orderNumber: id } })
+                let payment = await Payment.findOne({ where: { customerNumber: id } })
                 client.setex(id,600,JSON.stringify(payment));
                 res.status(200).send(payment);
                 console.log("fetched from mysql")
@@ -50,10 +50,10 @@ const getOne = async (req, res) => {
 
 const addPayment = async (req, res) => {
     let info = {
-        orderNumber: req.body.orderNumber,
-        orderDate: req.body.orderDate,
-        requiredDate: req.body.requiredDate,
-        shippedDate: req.body.shippedDate
+        customerNumber: req.body.customerNumber,
+        checkNumber: req.body.checkNumber,
+        paymentDate: req.body.paymentDate,
+        amount: req.body.amount
     }
 
     const payment = await Payment.create(info)
